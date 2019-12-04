@@ -9,13 +9,13 @@ import { RecipeService } from '../recipe.service';
 })
 export class IndexContentComponent implements OnInit {
 
-  recipe: Recipe;
+  recipes: Recipe[];
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    this.recipeService.getRecipe(1).subscribe(data => {
-      this.recipe = data;
+    this.recipeService.getAllRecipes().subscribe(data => {
+      this.recipes = data;
     });
   }
 

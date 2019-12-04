@@ -14,4 +14,12 @@ export class RecipeService {
   public getRecipe(id: number): Observable<Recipe> {
     return this.http.get<Recipe>(this.configService.baseUrl + '/recipes/' + id);
   }
+
+  public getAllRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.configService.baseUrl + '/recipes/');
+  }
+
+  public findRecipes(query: string): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.configService.baseUrl + '/recipes/search?q=' + query.replace(/\s/g, ''))
+  }
 }

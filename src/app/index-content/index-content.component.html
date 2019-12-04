@@ -1,9 +1,13 @@
 <div class="main-content-box">
-    <div *ngIf="recipe">
-        <h2>{{recipe.name}}</h2>
-        <p *ngFor="let ingredient of recipe.recipe_ingredients">
-            {{ingredient.quantity}} {{ingredient.unit_of_measure.name}}
-            {{ingredient.ingredient.name}}
-        </p>
+    <div *ngIf="recipes">
+        <div *ngFor="let recipe of recipes">
+            <h2>{{recipe.name}}</h2>
+            <p *ngFor="let ingredient of recipe.recipe_ingredients">
+                {{ingredient.quantity}} {{ingredient.unit_of_measure.name}}
+                {{ingredient.ingredient.name}}
+            </p>
+            <div [innerHtml]="recipe.instruction_set | marked">
+            </div>
+        </div>
     </div>
 </div>
