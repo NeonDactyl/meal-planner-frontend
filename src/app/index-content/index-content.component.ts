@@ -16,8 +16,6 @@ export class IndexContentComponent implements OnInit {
   ngOnInit() {
     this.recipeService.getRecipe(1).subscribe(data => {
       this.recipe = data;
-      console.log("############################")
-      console.log(this.recipe);
     });
   }
 
