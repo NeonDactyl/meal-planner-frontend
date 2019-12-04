@@ -12,8 +12,6 @@ export class RecipeService {
   constructor(private http: HttpClient, private configService: ConfigService) { }
 
   public getRecipe(id: number): Observable<Recipe> {
-    console.log("method called: getRecipe");
-    console.log(this.configService.baseUrl + '/recipes/' + id)
     return this.http.get<Recipe>(this.configService.baseUrl + '/recipes/' + id);
   }
 }
